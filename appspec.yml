@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /root/aws-pipeline
+
+hooks:
+  AfterInstall:
+    - location: scripts/npm_install.sh
+      timeout: 900
+      runas: root
+
+  ApplicationStart:
+    - location: scripts/restart_pm2.sh
+      timeout: 300
+      runas: root

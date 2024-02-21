@@ -1,0 +1,1 @@
+sudo pm2 restart api
